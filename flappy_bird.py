@@ -6,7 +6,7 @@ bird_img = cv2.imread(bird_img_path)
 pipe_path="image/pipe.png"
 pipe_img=cv2.imread(pipe_path)
 path="image/bg.jpg"
-bg=cv2.resize(path,(300,300))
+# bg=cv2.resize(path,(300,300))
 # height = min(pipe_img.shape[0])
 # bg = cv2.resize(pipe_img, (int(pipe_img.shape[1]*height/pipe_img.shape[0]), height))
 
@@ -79,7 +79,8 @@ def main():
     global bird_x, bird_y, velocity_y, is_jumping, obstacle_x, obstacle_speed, score
     cv2.namedWindow(WINDOW_NAME)
     while True:
-        frame = cv2.imread(bg)
+        frame = np.zeros((WINDOW_HEIGHT, WINDOW_WIDTH, 3), dtype=np.uint8) + 255
+
         draw_bird(frame)
         draw_obstacle(frame)
         draw_obstacle2(frame)
